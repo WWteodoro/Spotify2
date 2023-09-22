@@ -1,0 +1,20 @@
+{
+  "name": "Spotfy2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/WWteodoro/Spotify2.git",
+  "author": "unbigou <unbigou@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc",
+    "start:prod": "node ./dist/main.js",
+    "start:dev": "ts-node ./src/main.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/typescript": "^2.0.0",
+    "ts-node": "^10.9.1"
+  }
+}
