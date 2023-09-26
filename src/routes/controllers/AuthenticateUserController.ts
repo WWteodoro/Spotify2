@@ -17,6 +17,6 @@ export class AuthenticateUserController {
         const authenticateUserService = new AuthenticateUserService(this.userRepo, this.jwtRepo, this.hashRepo);
         const result = await authenticateUserService.execute({email, password});
 
-        return res.status(201).json(result).send()
+        return res.status(201).json(result)
     }
 }

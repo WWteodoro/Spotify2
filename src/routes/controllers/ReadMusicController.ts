@@ -11,6 +11,6 @@ export class ReadMusicController {
         const readMusicService = new ReadMusicService(this.musicRepo);
         const response = await readMusicService.execute({ id });
 
-        return res.status(200).json(response).send();
+        return res.status(200).json(response);
     }
 }
