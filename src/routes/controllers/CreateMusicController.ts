@@ -7,10 +7,10 @@ export class CreateMusicController {
 
     async handle(req: Request, res: Response): Promise<Response> {
         const { author, album, name } = req.body;
-
+        
         const createMusicService = new CreateMusicService(this.musicRepo);
-        await createMusicService.execute({ author, album, name });
+        let response = await createMusicService.execute({ author, album, name });
 
-        return res.status(201).send();
+        return res.status(201).json(response);
     }
 }

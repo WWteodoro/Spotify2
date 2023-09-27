@@ -9,8 +9,8 @@ export class UpdateMusicController {
         const { id, author, album, name } = req.body;
 
         const updateMusicService = new UpdateMusicService(this.musicRepo);
-        await updateMusicService.execute({ id, author, album, name });
+        let response = await updateMusicService.execute({ id, author, album, name });
 
-        return res.status(200).send();
+        return res.status(200).json(response);
     }
 }

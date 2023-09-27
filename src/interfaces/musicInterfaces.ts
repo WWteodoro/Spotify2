@@ -18,6 +18,13 @@ export interface ICreateMusicInput {
     name: string;
 }
 
+export interface ICreateMusicOutput {
+    id: string;
+    author: string;
+    album: string;
+    name: string;
+}
+
 export interface IReadMusicInput {
     id: string;
 }

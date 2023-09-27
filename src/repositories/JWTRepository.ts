@@ -5,7 +5,9 @@ require("dotenv").config({ path: ".env.example"})
 
 export class JWTRepository implements IJWTRepository {
     generate(payload: IJWTPayload): string {
-        return sign(payload, process.env.JWT_SECRET!, { expiresIn: '9999 days' })
+        return sign(payload, process.env.JWT_SECRET!, { 
+            expiresIn: '9999 days'
+        })
     }  
 
     verify(key: string): IJWTPayload {
