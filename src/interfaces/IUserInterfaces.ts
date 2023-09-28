@@ -33,3 +33,8 @@ export interface IUserUpdateRequest{
 export interface IUserDeleteRequest {
     id: string;
 }
+
+export interface IUserAuthenticateRequest {
+    email    : string;
+    password : string;
+}
