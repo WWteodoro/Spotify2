@@ -19,6 +19,7 @@ export class CreateUserService{
         }
 
         password = await this.hashRepo.cryptographie(password);
+        confirmPassword = await this.hashRepo.cryptographie(confirmPassword);
     
         const user = new User({name, email, password, confirmEmail, confirmPassword})
         await this.userRepo.insert(user.toJson())
