@@ -3,8 +3,6 @@ export interface IMusic {
     author: string;
     album: string;
     name: string;
-    createdAt?: Date;
-    updatedAt?: Date;
 }
 
 export interface IMusicRepository {
@@ -15,6 +13,13 @@ export interface IMusicRepository {
 }
 
 export interface ICreateMusicInput {
+    author: string;
+    album: string;
+    name: string;
+}
+
+export interface ICreateMusicOutput {
+    id: string;
     author: string;
     album: string;
     name: string;
