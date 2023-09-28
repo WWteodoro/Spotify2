@@ -5,11 +5,13 @@ import { GetUserController } from "./controllers/GetUserController";
 import { ListUsersController } from "./controllers/ListUsersController";
 import { UpdateUserController } from "./controllers/UpdateUserController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
+import { HashRepository } from "../repositories/HashRepository";
 
 export const userRoute = Router();
 
+const hashRepo = new HashRepository()
 const userRepo = new UserRepository()
-const createUserController = new CreateUserController(userRepo)
+const createUserController = new CreateUserController(userRepo, hashRepo)
 const getUserController = new GetUserController(userRepo)
 const listUsersController = new ListUsersController(userRepo)
 const updateUserController = new UpdateUserController(userRepo)

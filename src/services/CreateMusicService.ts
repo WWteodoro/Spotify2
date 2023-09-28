@@ -1,4 +1,4 @@
-import { ICreateMusicInput, IMusicRepository } from "../interfaces/musicInterfaces";
+import { ICreateMusicInput, IMusicRepository } from "../interfaces/IMusicInterfaces";
 import { createUUID } from "../utils/createUUID";
 
 export class CreateMusicService {

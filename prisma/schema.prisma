@@ -17,4 +17,14 @@ model user{
   password String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  music music[]
+}
+
+model music{
+  id String @id @db.Uuid
+  album String @db.VarChar(255)
+  name String @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  user user[]
 }
