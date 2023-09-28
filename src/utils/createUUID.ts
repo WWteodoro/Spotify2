@@ -1,5 +1,5 @@
-import { uuid } from "uuidv4";
+import { uuid } from 'uuidv4'
 
-export function createUUID(): string {
+export function createUUID() {
     return uuid();
 }
