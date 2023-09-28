@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMusicRepository } from "../../interfaces/musicInterfaces";
+import { IMusicRepository } from "../../interfaces/IMusicInterfaces";
 import { ReadMusicService } from "../../services/ReadMusicService";
 
 export class ReadMusicController {
@@ -11,6 +11,6 @@ export class ReadMusicController {
         const readMusicService = new ReadMusicService(this.musicRepo);
         const response = await readMusicService.execute({ id });
 
-        return res.status(200).json(response).send();
+        return res.status(200).json(response);
     }
 }
