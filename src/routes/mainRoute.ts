@@ -8,3 +8,4 @@ mainRouter.get('/', (_: Request, res: Response) => {
         title: "Node Express API with Typescript"
     })
 })
+
