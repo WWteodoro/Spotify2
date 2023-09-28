@@ -1,4 +1,4 @@
-import { IMusic } from "../interfaces/musicInterfaces";
+import { IMusic } from "../interfaces/IMusicInterfaces";
 import { createUUID } from "../utils/createUUID";
 
 export class Music {
@@ -6,12 +6,16 @@ export class Music {
     private _author: IMusic["author"];
     private _album: IMusic["album"];
     private _name: IMusic["name"];
+    createdAt: IMusic['createdAt'];
+    updatedAt: IMusic['updatedAt'];
 
-    private constructor(author: string, album: string, name: string, id?: string) {
+    private constructor(author: string, album: string, name: string, id?: string, createdAt?: Date)  {
         this.id = id || createUUID();
         this._author = author;
         this._album = album;
         this._name = name;
+        this.createdAt = createdAt || new Date();
+        this.updatedAt = new Date();
     }   
     
     static create(author: string, album: string, name: string, id?: string): Music {
@@ -50,7 +54,9 @@ export class Music {
             id: this.id,
             author: this._author,
             album: this._album,
-            name: this._name
+            name: this._name,
+            createdAt: this.createdAt,
+            updatedAt: this.updatedAt
         }
     }
 }

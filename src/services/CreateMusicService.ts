@@ -1,5 +1,6 @@
+import { ICreateMusicInput, IMusicRepository } from "../interfaces/IMusicInterfaces";
+import { createUUID } from "../utils/createUUID";
 import { Music } from "../entities/Music.entity";
-import { ICreateMusicInput, IMusicRepository } from "../interfaces/musicInterfaces";
 
 export class CreateMusicService {
     constructor(private musicRepo: IMusicRepository) { }

@@ -3,6 +3,8 @@ export interface IMusic {
     author: string;
     album: string;
     name: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
 export interface IMusicRepository {
