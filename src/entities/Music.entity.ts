@@ -1,25 +1,21 @@
-import { IMusic } from "../interfaces/IMusicInterfaces";
+import { IMusic } from "../interfaces/musicInterfaces";
 import { createUUID } from "../utils/createUUID";
 
 export class Music {
-    private readonly id: IMusic["id"];
+    private readonly _id: IMusic["id"];
     private _author: IMusic["author"];
     private _album: IMusic["album"];
     private _name: IMusic["name"];
-    createdAt: IMusic['createdAt'];
-    updatedAt: IMusic['updatedAt'];
-
-    private constructor(author: string, album: string, name: string, id?: string, createdAt?: Date)  {
-        this.id = id || createUUID();
+    
+    private constructor(author: IMusic["author"], album: IMusic["album"], name: IMusic["name"], id?: IMusic["id"]) {
+        this._id = id || createUUID();
         this._author = author;
         this._album = album;
         this._name = name;
-        this.createdAt = createdAt || new Date();
-        this.updatedAt = new Date();
     }   
-    
-    static create(author: string, album: string, name: string, id?: string): Music {
-        return this.constructor(author, album, name, id!);
+
+    static create(author: IMusic["author"], album: IMusic["album"], name: IMusic["name"], id?: IMusic["id"]): Music {
+        return new Music(author, album, name, id!);
     }
 
     //Author getter and setter
@@ -51,12 +47,10 @@ export class Music {
 
     public toJSON(): IMusic {
         return {
-            id: this.id,
+            id: this._id,
             author: this._author,
             album: this._album,
-            name: this._name,
-            createdAt: this.createdAt,
-            updatedAt: this.updatedAt
+            name: this._name
         }
     }
 }
