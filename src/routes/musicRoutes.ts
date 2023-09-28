@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { IMusicRepository } from "../interfaces/IMusicInterfaces";
+import { IMusicRepository } from "../interfaces/musicInterfaces";
 import { CreateMusicController } from "./controllers/CreateMusicController";
 import { ReadMusicController } from "./controllers/ReadMusicController";
 import { UpdateMusicController } from "./controllers/UpdateMusicController";

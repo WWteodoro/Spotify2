@@ -1,4 +1,4 @@
-import { IMusicRepository, IReadMusicInput, IReadMusicOutput } from "../interfaces/IMusicInterfaces";
+import { IMusicRepository, IReadMusicInput, IReadMusicOutput } from "../interfaces/musicInterfaces";
 
 export class ReadMusicService {
     constructor(private musicRepo: IMusicRepository) { }

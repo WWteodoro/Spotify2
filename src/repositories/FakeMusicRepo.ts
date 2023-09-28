@@ -1,4 +1,4 @@
-import { IMusic, IMusicRepository } from "../interfaces/IMusicInterfaces";
+import { IMusic, IMusicRepository } from "../interfaces/musicInterfaces";
 
 export class FakeMusicRepo implements IMusicRepository {
     private musics: IMusic[] = [];

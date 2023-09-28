@@ -1,4 +1,4 @@
-import { IDeleteMusicInput, IMusicRepository } from "../interfaces/IMusicInterfaces";
+import { IDeleteMusicInput, IMusicRepository } from "../interfaces/musicInterfaces";
 
 export class DeleteMusicService {
     constructor(private musicRepo: IMusicRepository) { }

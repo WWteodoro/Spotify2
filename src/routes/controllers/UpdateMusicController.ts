@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMusicRepository } from "../../interfaces/IMusicInterfaces";
+import { IMusicRepository } from "../../interfaces/musicInterfaces";
 import { UpdateMusicService } from "../../services/UpdateMusicService";
 
 export class UpdateMusicController {
