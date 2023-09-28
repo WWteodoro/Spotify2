@@ -1,0 +1,10 @@
+### Create Music
+POST http://localhost:3333/music
+Content-Type: application/json
+
+{
+    "author": "MC Baza",
+    "album" : "New Happen Songs",
+    "name"  : "Funcionario do mes ft. Dogão"
+}
+
