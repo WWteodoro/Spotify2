@@ -1,0 +1,34 @@
+GET http://localhost:3333/
+
+### Get Users
+GET http://localhost:3333/users
+
+### Get User
+GET http://localhost:3333/users/9f470020-cc72-48b9-bbfa-a273fe7dd696
+
+### Create User
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+    "name": "calvo",
+    "email": "calvo@calvo.calvo",
+    "password": "ca23hEE2.hh",
+    "confirmEmail": "calvo@calvo.calvo",
+    "confirmPassword": "ca23hEE2.hh"
+}
+
+### Update User
+PUT http://localhost:3333/users/6a46d77a-fec6-4b02-a714-52045d73faee
+Content-Type: application/json
+
+{
+    "name": "calvo2",
+    "email": "calvo@calvo.calvo",
+    "password": "ca23hEE2.hh",
+    "confirmEmail": "calvo@calvo.calvo",
+    "confirmPassword": "ca23hEE2.hh"
+}
+
+### Delete user
+DELETE http://localhost:3333/users/b75853c9-1978-473f-9931-e9efad11cfef
