@@ -5,6 +5,7 @@ import { ReadMusicController } from "./controllers/ReadMusicController";
 import { UpdateMusicController } from "./controllers/UpdateMusicController";
 import { DeleteMusicController } from "./controllers/DeleteMusicController";
 import { FakeMusicRepo } from "../repositories/FakeMusicRepo";
+import { resolveController } from "../adapters/resolverController";
 
 export const musicRoute = Router();
 
@@ -15,18 +16,18 @@ const readMusicController   = new ReadMusicController(musicRepo);
 const updateMusicController = new UpdateMusicController(musicRepo);
 const deleteMusicControlelr = new DeleteMusicController(musicRepo);
 
-musicRoute.post('/', async (req: Request, res: Response) => {
+musicRoute.post('/', resolveController(async (req: Request, res: Response) => {
     await createMusicController.handle(req, res);
-})
+}))
 
-musicRoute.get('/:id', async (req: Request, res: Response) => {
+musicRoute.get('/:id', resolveController(async (req: Request, res: Response) => {
     await readMusicController.handle(req, res);
-})
+}))
 
-musicRoute.post('/', async (req: Request, res: Response) => {
+musicRoute.post('/', resolveController(async (req: Request, res: Response) => {
     await updateMusicController.handle(req, res);
-})
+}))
 
-musicRoute.post('/:id', async (req: Request, res: Response) => {
+musicRoute.post('/:id', resolveController(async (req: Request, res: Response) =>{
     await deleteMusicControlelr.handle(req, res);
-})
+}))

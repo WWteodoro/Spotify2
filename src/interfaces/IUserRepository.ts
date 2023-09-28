@@ -1,9 +1,9 @@
-import { IUser } from "./IUserInterfaces";
+import { IUser } from "./userInterfaces"
 
-export interface IUserRepository{
+export interface IUserRepository {
     findAll(): Promise<IUser[]>
-    findOneUser(id: string): Promise<IUser>
-    insert(props: IUser): Promise<void>
+    findOneUser(id:string): Promise<IUser>
+    insert(props: IUser): Promise<IUser>
     update(props: IUser, id: string): Promise<void>
     delete(id: string): Promise<void>
-}
+    findByEmail(email: IUser["email"]): Promise<IUser | null>

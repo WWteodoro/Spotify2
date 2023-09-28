@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import { route } from './routes';
 import bodyParser from 'body-parser'
 import { PrismaClient } from '@prisma/client';
