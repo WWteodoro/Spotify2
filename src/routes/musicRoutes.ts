@@ -24,10 +24,10 @@ musicRoute.get('/:id', resolveController(async (req: Request, res: Response) => 
     await readMusicController.handle(req, res);
 }))
 
-musicRoute.post('/', resolveController(async (req: Request, res: Response) => {
+musicRoute.put('/', resolveController(async (req: Request, res: Response) => {
     await updateMusicController.handle(req, res);
 }))
 
-musicRoute.post('/:id', resolveController(async (req: Request, res: Response) =>{
+musicRoute.delete('/:id', resolveController(async (req: Request, res: Response) =>{
     await deleteMusicControlelr.handle(req, res);
 }))
