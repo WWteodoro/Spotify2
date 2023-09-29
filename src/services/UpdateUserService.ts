@@ -1,12 +1,17 @@
 import { User } from "../entities/User.entity"
 import { AppError } from "../errors/AppError"
-import { IUser, IUserGetRequest, IUserUpdateRequest } from "../interfaces/IUserInterfaces"
+import { IHashRepository } from "../interfaces/IHashRepository"
+import { IUser,  IUserUpdateRequest } from "../interfaces/IUserInterfaces"
 import { IUserRepository } from "../interfaces/IUserRepository"
 import { validateEmail, validatePassword } from "../utils/validate"
 
 
 export class UpdateUsersService{
-    constructor(private userRepo: IUserRepository){ }
+    constructor(
+        private userRepo: IUserRepository,
+        private hashRepo: IHashRepository
+    ) { }
+
     async execute({ id, name, email, password, confirmEmail, confirmPassword}: IUserUpdateRequest): Promise<IUser> {
         if(password != confirmPassword) throw new AppError('Senhas diferentes');
         if(email != confirmEmail) throw new AppError('Emails diferentes');
@@ -19,7 +24,7 @@ export class UpdateUsersService{
            throw new AppError('Email ou senha inválidos')
         }
     
-        const user = User.create(name, email, password, undefined, id);
+        const user = User.create(name, email, await this.hashRepo.cryptographie(password), undefined, id);
 
         let response = user.toJson()
     

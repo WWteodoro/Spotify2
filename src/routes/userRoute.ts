@@ -15,7 +15,7 @@ const userRepo = new UserRepository()
 const createUserController = new CreateUserController(userRepo, hashRepo)
 const getUserController = new GetUserController(userRepo)
 const listUsersController = new ListUsersController(userRepo)
-const updateUserController = new UpdateUserController(userRepo)
+const updateUserController = new UpdateUserController(userRepo, hashRepo)
 const deleteUserController = new DeleteUserController(userRepo)
 
 //criar 
