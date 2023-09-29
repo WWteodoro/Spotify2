@@ -24,7 +24,6 @@ export class UpdateUsersService{
         let response = user.toJson()
     
         await this.userRepo.update(response, id)
-
         return response;
     }
 }

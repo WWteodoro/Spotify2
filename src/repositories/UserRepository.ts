@@ -1,3 +1,4 @@
+import { AppError } from "../errors/AppError";
 import { IUser } from "../interfaces/IUserInterfaces";
 import { IUserRepository } from "../interfaces/IUserRepository";
 import { PrismaClient } from "@prisma/client";
@@ -37,5 +38,15 @@ export class UserRepository implements IUserRepository {
         await prisma.user.delete({
             where: { id }
         })
+    } 
 
-    } }
+    async findByEmail(email: string): Promise<IUser> {
+        const result = await prisma.user.findMany({
+            where: { email } 
+        })
+
+        if(!result[0]) throw new AppError("User not found");
+
+        return result[0];
+    }
+}

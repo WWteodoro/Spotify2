@@ -19,21 +19,21 @@ const updateMusicController = new UpdateMusicController(musicRepo);
 const deleteMusicControlelr = new DeleteMusicController(musicRepo);
 
 musicRoute.post('/', resolveController(async (req: Request, res: Response) => {
-    await createMusicController.handle(req, res);
+    return await createMusicController.handle(req, res);
 }))
 
 musicRoute.get('/:id', resolveController(async (req: Request, res: Response) => {
-    await readMusicController.handle(req, res);
+    return await readMusicController.handle(req, res);
 }))
 
 musicRoute.get('/', resolveController(async (_: Request, res: Response) => {
-    await readAllMusicController.handle(_, res);
+    return await readAllMusicController.handle(_, res);
 }))
 
 musicRoute.put('/', resolveController(async (req: Request, res: Response) => {
-    await updateMusicController.handle(req, res);
+    return await updateMusicController.handle(req, res);
 }))
 
 musicRoute.delete('/:id', resolveController(async (req: Request, res: Response) =>{
-    await deleteMusicControlelr.handle(req, res);
+    return await deleteMusicControlelr.handle(req, res);
 }))

@@ -4,9 +4,9 @@ import { sign, verify } from "jsonwebtoken"
 require("dotenv").config({ path: ".env.example"})
 
 export class JWTRepository implements IJWTRepository {
-    generate(payload: IJWTPayload): string {
-        return sign(payload, process.env.JWT_SECRET!, { 
-            expiresIn: '9999 days'
+    generate(payload: IJWTPayload, secret: string, expires: string): string {
+        return sign(payload, secret, { 
+            expiresIn: expires
         })
     }  
 

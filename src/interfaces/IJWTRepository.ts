@@ -4,6 +4,6 @@ export interface IJWTPayload {
 }
 
 export interface IJWTRepository {
-    generate(payload: IJWTPayload): string;
+    generate(payload: IJWTPayload, secret: string, expires: string): string;
     verify(key: string): IJWTPayload;
 }

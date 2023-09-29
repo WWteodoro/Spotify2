@@ -45,3 +45,16 @@ export interface IUserAuthenticateRequest {
     email    : string;
     password : string;
 }
+
+export interface IAuthenticateResponse {
+    user: {
+        id: string;
+        name: string;
+        email: string;
+        password?: string;
+        createdAt: Date;
+        updatedAt: Date;
+    };
+    token: string;
+    refreshToken: string
+}

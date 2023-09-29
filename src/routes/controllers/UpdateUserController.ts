@@ -10,8 +10,8 @@ constructor(private userRepo: IUserRepository){}
         const {name, email, password, confirmEmail, confirmPassword} = req.body;
     
         const updateUserService = new UpdateUsersService(this.userRepo)
-        await updateUserService.execute({ id, name, email, password, confirmEmail, confirmPassword})
+        let response = await updateUserService.execute({ id, name, email, password, confirmEmail, confirmPassword})
     
-        return res.status(201).json();
+        return res.status(201).json(response);
     }
 }
