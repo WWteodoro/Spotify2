@@ -4,9 +4,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export class UserRepository implements IUserRepository{
+export class UserRepository implements IUserRepository {
     async findAll(): Promise<IUser[]> {
         const  result = await prisma.user.findMany()
+
         return result;
     }
     
@@ -21,7 +22,7 @@ export class UserRepository implements IUserRepository{
             where: { id }
         })
 
-        if(!result) throw Error('User not fund')
+        if(!result) throw Error('User not found')
         return result;
     }
 

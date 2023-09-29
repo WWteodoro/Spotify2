@@ -6,6 +6,7 @@ export class UpdateMusicService {
 
     async execute(input: IUpdateMusicInput): Promise<IUpdateMusicInput> {
         let { id, author, album, name } = input;
+
         let music = Music.create(author, album, name, id);
         let response = music.toJSON()
 

@@ -3,10 +3,17 @@ export interface IUser {
     name: string;
     email: string;
     password: string;
-    confirmEmail?: string;
-    confirmPassword?: string;
-    createdAt?: Date;
-    updatedAt?: Date;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface ICreateUserResponse {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface IUserCreateRequest{

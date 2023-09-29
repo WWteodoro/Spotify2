@@ -24,7 +24,5 @@ model music{
   id String @id @db.Uuid
   album String @db.VarChar(255)
   name String @db.VarChar(255)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  user user[]
+  author String @db.VarChar(255)
 }

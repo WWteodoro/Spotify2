@@ -1,6 +1,4 @@
 import { Request, Response } from "express"
-import { validateEmail, validatePassword } from "../../utils/validate";
-import { User } from "../../entities/user";
 import { IUserRepository } from "../../interfaces/IUserRepository";
 import { DeleteUserService } from "../../services/DeleteUserService";
 

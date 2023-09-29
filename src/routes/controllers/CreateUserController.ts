@@ -4,14 +4,14 @@ import { CreateUserService } from "../../services/CreateUserService";
 import { IHashRepository } from "../../interfaces/IHashRepository";
 
 export class CreateUserController {
-constructor(private userRepo: IUserRepository, private hashRepo: IHashRepository){}
+    constructor(private userRepo: IUserRepository, private hashRepo: IHashRepository) { }
 
     async handle(req: Request, res: Response): Promise<Response> {
-        const { name, email, password, confirmEmail = email, confirmPassword = password} = req.body;
+        const { name, email, password, confirmEmail, confirmPassword } = req.body;
+
         const createUserService = new CreateUserService(this.userRepo, this.hashRepo)
-        createUserService.execute({ name, email, password, confirmEmail, confirmPassword })
+        const response = await createUserService.execute({ name, email, password, confirmEmail, confirmPassword })
         
-        res.status(201).send()
-        return res.status(201).send()
+        return res.status(201).json(response);
     }
 }

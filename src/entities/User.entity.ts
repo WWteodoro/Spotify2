@@ -1,25 +1,25 @@
 import { IUser } from "../interfaces/IUserInterfaces";
 import { createUUID } from "../utils/createUUID";
 
-export class User{
+export class User {
     id: IUser['id'];
     name: IUser['name'];
     email: IUser['email'];
     password: IUser['password'];
-    confirmEmail: IUser['confirmEmail'];
-    confirmPassword: IUser['confirmPassword'];
     createdAt: IUser['createdAt'];
     updatedAt: IUser['updatedAt'];
 
-    constructor(props: Omit<IUser, 'id'>, id?:string) {
+    private constructor(name: IUser['name'], email: IUser['email'], password: IUser['password'], createdAt?: IUser['createdAt'], id?:string) {
         this.id = id || createUUID();
-        this.name = props.name;
-        this.email = props.email;
-        this.confirmEmail = props.email;
-        this.password = props.password;
-        this.confirmPassword = props.confirmPassword;
-        this.createdAt = props.createdAt || new Date();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.createdAt = createdAt || new Date();
         this.updatedAt = new Date();
+    }
+
+    static create(name: IUser['name'], email: IUser['email'], password: IUser['password'], createdAt?: IUser['createdAt'], id?: string) {
+        return new User(name, email, password, createdAt, id);
     }
 
     toJson(): IUser{
@@ -28,9 +28,7 @@ export class User{
             name: this.name,
             email: this.email,
             password: this.password,
-            confirmEmail: this.confirmEmail,
-            confirmPassword: this.confirmPassword,
-            createdAt: this.createdAt,
+            createdAt: this.createdAt!,
             updatedAt: this.updatedAt
         }
     }

@@ -8,6 +8,7 @@ export interface IMusic {
 export interface IMusicRepository {
     create(input: IMusic): Promise<void>;
     read(id: string): Promise<IMusic | undefined>;
+    readAll(): Promise<IMusic[]>;
     update(input: IMusic): Promise<void>;
     delete(id: string): Promise<void>;
 }
