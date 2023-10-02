@@ -1,0 +1,21 @@
+# Spotify2
+
+O software está sendo desenvolvido como forma de fixar alguns conhecimentos de backend adquirido por estudandes de ciências da computação.
+
+## Table of Contents (Índice)
+
+- [Introdução](#introdução)
+- [Como Usar](#como-usar)
+
+
+## Introdução
+
+O Spotify2 é um software que tem como objetivo permitir que usuários postem músicas e criem playlists com essas músicas. Até o momento, estão implementadas para teste o cadastro e login de usuário e o cadastro de músicas.
+
+## Como Usar
+
+Os usuários, para serem gerados, precisam de um email, senha e nome de usuário. A senha precisa atender alguns requisitos(pelo menos 1 letra maiúscula, uma minúscula, um número, um caractere especial e mais de 8 dígitos) e a confirmação de senha e confirmação de email precisam ser iguais a, respectivamente, senha e email.
+Para o login, o usuário precisa apresentar seu email e sua senha.
+Para cadastro de uma música, é necessário inserir o nome da música, seu autor e seu álbum. 
+É possível atualizar alguns dados de usuários e música, sendo eles o nome de usuário, seu email e sua senha, o nome de uma música, seu autor e seu álbum. 
+É possível buscar usuários por ID e listá-los.

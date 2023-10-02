@@ -1,7 +1,7 @@
 import { AppError } from "../errors/AppError";
 import { IHashRepository } from "../interfaces/IHashRepository";
 import { IJWTRepository } from "../interfaces/IJWTRepository";
-import { IUserAuthenticateRequest } from "../interfaces/userInterfaces";
+import { IUserAuthenticateRequest } from "../interfaces/IUserInterfaces";
 import { IUserRepository } from "../interfaces/IUserRepository"; 
 
 export class AuthenticateUserService {
@@ -12,7 +12,7 @@ export class AuthenticateUserService {
     ) { }
     
     async execute({email, password}: IUserAuthenticateRequest): Promise<Object | void> {
-        const user = await this.userRepo.findByEmail(email);
+        const user = await this.userRepo.findOneUser(email);
         
         if(user) {
             const res = await this.hashRepo.uncryptographie(password, user.password)
