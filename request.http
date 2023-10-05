@@ -1,0 +1,20 @@
+GET http://localhost:3333/
+
+### Get Users
+GET http://localhost:3333/users
+
+### Get User
+GET http://localhost:3333/users/14d58f3c-2057-47d2-bf5b-1c5fb85c9e11
+
+### Create User
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+    "name": "calvo",
+    "email": "calvo@calvo.calvo",
+    "password": "A1234567.a",
+    "confirmEmail": "calvo@calvo.calvo",
+    "confirmPassword": "A1234567.a",
+    "birthdate": "20/09/2001"
+}
