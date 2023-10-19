@@ -17,3 +17,12 @@ export function validatePassword(password: string): boolean {
     return true;
 }
 
+export function validatePlaylistDescription(description: string): boolean {
+    if(description.length > 1000){
+        return false
+    }
+
+    return true;
+}
+
+

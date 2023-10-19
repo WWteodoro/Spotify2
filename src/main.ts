@@ -1,7 +1,8 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { route } from './routes';
-import bodyParser from 'body-parser'
 import { PrismaClient } from '@prisma/client';
+import { AppError } from './errors/AppError';
+import { handleError } from './middlewares/handleError';
 
 require('dotenv').config({ path: '.env'});
 
@@ -11,9 +12,11 @@ prisma.$connect()
 //criando backend através do express
 const app = express();
 
-app.use(bodyParser.json())
+app.use(express.json())
 //backend usa rota raiz
-app.use('/', route);
+app.use(route);
+
+app.use(handleError)
 
 //executa o backend na porta mencionada e após, executa a função callback
 app.listen(Number(process.env.PORT), () => {

@@ -18,6 +18,7 @@ model user{
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   music music[]
+  playlist playlist[]
 }
 
 model music{
@@ -27,4 +28,17 @@ model music{
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   user user[]
+  playlist playlist[]
+}
+
+model playlist{
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  author String @db.VarChar(255)
+  description String @db.VarChar(1000)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  user user[]
+  music music[]
+
 }
