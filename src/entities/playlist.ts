@@ -6,6 +6,8 @@ export class Playlist{
     name: IPlaylist['name'];
     author:IPlaylist['author'];
     description:IPlaylist['description'];
+    createdAt: IPlaylist['createdAt'];
+    updateAt: IPlaylist['updatedAt'];
     
 
     constructor(props: Omit<IPlaylist, 'id'>, id?: string){
@@ -13,6 +15,8 @@ export class Playlist{
         this.name = props.name;
         this.author = props.author;
         this.description = props.description;
+        this.createdAt = props.createdAt || new Date();
+        this.updateAt = new Date();
         
     }
 
@@ -21,7 +25,9 @@ export class Playlist{
             id: this.id,
             name: this.name,
             author: this.author,
-            description: this.description
+            description: this.description,
+            createdAt: this.createdAt,
+            updatedAt: this.updateAt
         }
     }
 }

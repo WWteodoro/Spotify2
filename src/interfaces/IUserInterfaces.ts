@@ -3,8 +3,8 @@ export interface IUser {
     name: string;
     email: string;
     password: string;
-    confirmEmail?: string;
-    confirmPassword?: string;
+    confirmEmail: string;
+    confirmPassword: string;
     createdAt?: Date;
     updatedAt?: Date;
 }

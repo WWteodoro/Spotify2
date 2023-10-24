@@ -17,6 +17,8 @@ model user{
   password String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  confirmEmail String @db.VarChar(255)
+  confirmPassword String @db.VarChar(255)
   music music[]
   playlist playlist[]
 }

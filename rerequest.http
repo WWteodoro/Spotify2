@@ -15,7 +15,7 @@ POST http://localhost:3333/playlist
 Content-Type: application/json
 
 {
-    "name": "Rain",
+    "name": "Olha Yuri",
     "author": "God",
     "description": "SLEEP TOKEN"
 }
