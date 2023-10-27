@@ -11,7 +11,6 @@ constructor(private userRepo: IUserRepository, private hashRepo: IHashRepository
         const createUserService = new CreateUserService(this.userRepo, this.hashRepo)
         createUserService.execute({ name, email, password, confirmEmail, confirmPassword })
         
-        res.status(201).send()
         return res.status(201).send()
     }
 }

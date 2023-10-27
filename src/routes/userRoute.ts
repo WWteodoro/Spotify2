@@ -6,6 +6,7 @@ import { ListUsersController } from "./controllers/ListUsersController";
 import { UpdateUserController } from "./controllers/UpdateUserController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
 import { HashRepository } from "../repositories/HashRepository";
+import { resolveController } from "../adapters/resolverController";
 
 export const userRoute = Router();
 
@@ -18,29 +19,29 @@ const updateUserController = new UpdateUserController(userRepo)
 const deleteUserController = new DeleteUserController(userRepo)
 
 //criar 
-userRoute.post('/', async(req: Request, res: Response) => {
+userRoute.post('/', resolveController(async(req: Request, res: Response) => {
     return await createUserController.handle(req, res)
-})
+}))
 
 //Pegar um único usuário
-userRoute.get('/:id', async(req: Request, res: Response) => {
+userRoute.get('/:id', resolveController(async(req: Request, res: Response) => {
     return await getUserController.handle(req, res)
-})
+}))
 
 //Listar
-userRoute.get('/', async (_, res: Response) => {
+userRoute.get('/', resolveController(async (_: Request, res: Response) => {
     return await listUsersController.handle(_, res)
-})
+}))
 
 //Atualizar
-userRoute.put('/:id', async (req: Request, res:Response) => {
+userRoute.put('/:id', resolveController(async (req: Request, res:Response) => {
    return await updateUserController.handle(req, res)
 
-})
+}))
 
 //Exclusão
-userRoute.delete('/:id', async (req: Request, res: Response) => {
+userRoute.delete('/:id', resolveController(async (req: Request, res: Response) => {
     return await deleteUserController.handle(req, res)
-})
+}))
 
 
