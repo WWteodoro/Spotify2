@@ -36,7 +36,7 @@ playlistRoute.get('/:id', resolveController(async(req: Request, res: Response) =
 
 //Pegar uma playlist por nome
 playlistRoute.get('/:name', resolveController(async(req: Request, res: Response) => {
-    
+    return await getPlaylistByNameController.handle(req,res)
 }))
 
 //Listar Playlists
